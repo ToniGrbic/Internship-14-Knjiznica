@@ -3,10 +3,10 @@ import React, { useState } from "react";
 const DateInput = () => {
   const [date, setDate] = useState("");
   return (
-    <div className="dateDiv">
-      <label htmlFor="date">Date: </label>
+    <div>
+      <p>Date: </p>
       <input
-        id="date"
+        className="dateInput"
         type="date"
         name="date"
         value={date}

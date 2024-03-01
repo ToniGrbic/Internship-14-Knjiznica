@@ -18,10 +18,20 @@ const Form = () => {
   };
 
   return (
-    <form id="Form" onSubmit={handleSubmit}>
-      <DateInput />
-      <FormSelect options={categories} type="Category" />
-      <TextInput />
+    <form id="form" onSubmit={handleSubmit}>
+      <div className="selectInputsContainer">
+        <DateInput />
+        <FormSelect options={categories} type="Category" />
+      </div>
+
+      <TextInput name="Title" />
+      <TextInput name="Author" />
+      <TextInput name="Publisher" />
+      <TextInput name="Book Image URL (optional)" />
+
+      <button type="submit" id="addBookBtn">
+        Add Book
+      </button>
     </form>
   );
 };

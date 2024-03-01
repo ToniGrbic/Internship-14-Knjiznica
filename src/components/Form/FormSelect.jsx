@@ -2,8 +2,8 @@ import React from "react";
 
 const FormSelect = ({ options, type }) => {
   return (
-    <div className="selectDiv">
-      <label htmlFor={type}>{type}: </label>
+    <div>
+      <p>{type}: </p>
       <select
         id={type}
         name={type}

@@ -5,11 +5,9 @@ const SelectOptions = ({ options }) => {
     <>
       {options?.map((option) => {
         return (
-          <>
-            <option key={option} value={option}>
-              {option}
-            </option>
-          </>
+          <option key={option} value={option}>
+            {option}
+          </option>
         );
       })}
     </>

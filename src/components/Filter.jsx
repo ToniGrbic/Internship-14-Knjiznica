@@ -1,22 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SelectOptions from "./SelectOptions";
-import Button from "./Button";
+import ButtonSubmit from "./ButtonSubmit";
 import { categories } from "./Form/Form";
 
-const Filter = () => {
+const Filter = ({ books, setFilteredBooks }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("All");
 
-  useEffect(() => {
-    console.log(searchTerm, searchCategory);
-  }, [searchTerm, searchCategory]);
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const filtered = books.filter((book) => {
+      const title = book.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const author = book.author
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const category =
+        searchCategory === "All" ? true : book.category === searchCategory;
+      if (searchTerm === "") return category;
+      return (title || author) && category;
+    });
+    console.log(filtered);
+    setFilteredBooks(filtered);
+  };
+
+  const handleSearchTerm = (e) => {
+    if (e.target.value === "") {
+      setFilteredBooks(books);
+    }
+    setSearchTerm(e.target.value);
+  };
+
   return (
-    <div className="filtersContainer">
+    <form
+      id="Search"
+      onSubmit={handleSearchSubmit}
+      className="filtersContainer"
+    >
       <div className="filterInputs">
         <input
           id="searchInput"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleSearchTerm}
           type="text"
           placeholder="search by name and author"
         />
@@ -28,8 +52,8 @@ const Filter = () => {
           <SelectOptions options={["All", ...categories]} />
         </select>
       </div>
-      <Button name="Search" />
-    </div>
+      <ButtonSubmit name="Search" />
+    </form>
   );
 };
 

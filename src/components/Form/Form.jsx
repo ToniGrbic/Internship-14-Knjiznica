@@ -2,7 +2,7 @@ import React from "react";
 import FormSelect from "./FormSelect";
 import TextInput from "./TextInput";
 import DateInput from "./DateInput";
-import Button from "../Button";
+import ButtonSubmit from "../ButtonSubmit";
 import toast from "react-hot-toast";
 import uuid from "react-uuid";
 import { defaultBookState } from "../../App";
@@ -100,7 +100,7 @@ const Form = ({ book, setBook, setBooks }) => {
         setFormData={setFormData}
       />
 
-      <Button name="Add Book" />
+      <ButtonSubmit name="Add Book" />
     </form>
   );
 };

@@ -19,9 +19,11 @@ export const defaultBookState = {
 function App() {
   const [book, setBook] = useState(defaultBookState);
   const [books, setBooks] = useState(JSON.parse(localStorage.getItem("books")));
+  const [filteredBooks, setFilteredBooks] = useState(books);
 
   useEffect(() => {
     localStorage.setItem("books", JSON.stringify(books));
+    console.log(filteredBooks);
   }, [books]);
 
   return (
@@ -29,9 +31,9 @@ function App() {
       <Toaster />
       <h1>Library</h1>
       <Form book={book} setBook={setBook} setBooks={setBooks} />
-      <Filter />
+      <Filter books={books} setFilteredBooks={setFilteredBooks} />
       <div className="booksContainer">
-        <BookList books={books} />
+        <BookList books={filteredBooks} />
       </div>
     </div>
   );

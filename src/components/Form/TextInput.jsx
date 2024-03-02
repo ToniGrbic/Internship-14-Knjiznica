@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-const TextInput = ({ name }) => {
-  const [inputText, setInputText] = useState("");
+const TextInput = ({ name, value, field, setFormData }) => {
   return (
     <div className="textInputDiv">
       <p className="textInputName">{name}</p>
       <input
+        name="textInput"
         type="text"
-        id="text-input"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
+        value={value}
+        onChange={(e) => setFormData({ [field]: e.target.value })}
       />
     </div>
   );

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const DateInput = () => {
-  const [date, setDate] = useState("");
+const DateInput = ({ date, setFormData }) => {
   return (
     <div>
       <p>Date: </p>
@@ -10,7 +9,7 @@ const DateInput = () => {
         type="date"
         name="date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e) => setFormData({ publishedDate: e.target.value })}
       />
     </div>
   );

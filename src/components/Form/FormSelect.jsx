@@ -1,19 +1,25 @@
 import React from "react";
 
-const FormSelect = ({ options, type }) => {
+const FormSelect = ({ options, type, setFormData }) => {
   return (
     <div>
       <p>{type}: </p>
       <select
         id={type}
         name={type}
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) =>
+          setFormData({
+            category: e.target.value,
+          })
+        }
       >
-        {options?.map((option, index) => {
+        {options?.map((option) => {
           return (
-            <option key={index} value={option}>
-              {option}
-            </option>
+            <>
+              <option key={option} value={option}>
+                {option}
+              </option>
+            </>
           );
         })}
       </select>

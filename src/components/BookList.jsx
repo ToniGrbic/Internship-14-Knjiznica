@@ -1,15 +1,12 @@
 import React from "react";
 import Book from "./Book";
 
-const BookList = () => {
+const BookList = ({ books }) => {
   return (
     <>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      {books.map((book) => {
+        return <Book key={book.uuid} book={book} />;
+      })}
     </>
   );
 };

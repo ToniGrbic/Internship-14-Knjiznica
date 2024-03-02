@@ -4,6 +4,8 @@ import TextInput from "./TextInput";
 import DateInput from "./DateInput";
 import toast from "react-hot-toast";
 import uuid from "react-uuid";
+import { defaultBookState } from "../../App";
+import { sortBooks } from "../../utils/utils";
 
 const categories = [
   "novel",
@@ -35,9 +37,12 @@ const Form = ({ book, setBook, setBooks }) => {
       return;
     }
     book.uuid = uuid();
-    console.log(book);
+
+    setBooks((prev) => {
+      return sortBooks([...prev, book]);
+    });
+    setBook(defaultBookState);
     toast.success("New book added");
-    setBooks((prev) => [...prev, book]);
   };
 
   const setFormData = (fields) => {

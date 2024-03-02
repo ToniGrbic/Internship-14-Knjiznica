@@ -3,13 +3,12 @@ import SelectOptions from "./SelectOptions";
 import ButtonSubmit from "./ButtonSubmit";
 import { categories } from "./Form/Form";
 
-const Filter = ({ books, setFilteredBooks }) => {
+const Filter = ({ books, filteredBooks, setFilteredBooks }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("All");
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    const filtered = books.filter((book) => {
+  const filterBooks = (books) => {
+    return books.filter((book) => {
       const title = book.title.toLowerCase().includes(searchTerm.toLowerCase());
       const author = book.author
         .toLowerCase()
@@ -19,13 +18,17 @@ const Filter = ({ books, setFilteredBooks }) => {
       if (searchTerm === "") return category;
       return (title || author) && category;
     });
-    console.log(filtered);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const filtered = filterBooks(books);
     setFilteredBooks(filtered);
   };
 
   const handleSearchTerm = (e) => {
     if (e.target.value === "") {
-      setFilteredBooks(books);
+      setFilteredBooks(filterBooks(books));
     }
     setSearchTerm(e.target.value);
   };

@@ -31,9 +31,14 @@ function App() {
       <Toaster />
       <h1>Library</h1>
       <Form book={book} setBook={setBook} setBooks={setBooks} />
-      <Filter books={books} setFilteredBooks={setFilteredBooks} />
+      <Filter
+        books={books}
+        filteredBooks={filteredBooks}
+        setFilteredBooks={setFilteredBooks}
+      />
+      <h3>Results: {filteredBooks.length}</h3>
       <div className="booksContainer">
-        <BookList books={filteredBooks} />
+        <BookList books={filteredBooks} setBooks={setFilteredBooks} />
       </div>
     </div>
   );

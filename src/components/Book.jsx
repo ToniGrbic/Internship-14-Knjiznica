@@ -1,22 +1,54 @@
 import React from "react";
 import bookImg from "../assets/book_image.jpg";
+import toast from "react-hot-toast";
 
-const Book = ({ book }) => {
+const Book = ({ book, setBooks }) => {
   const [yearOfPublishing, _] = book.publishedDate.split("-");
+
+  const findBookAndUpdateCopiesNum = (prev, newValue) => {
+    return prev.map((b) => {
+      if (b.uuid === book.uuid) {
+        return { ...b, numberOfCopies: newValue };
+      }
+      return b;
+    });
+  };
+
+  const handleBorrowBook = () => {
+    if (book.numberOfCopies === 0) {
+      toast.error("No more copies available");
+      return;
+    }
+    setBooks((prev) => {
+      return findBookAndUpdateCopiesNum(prev, +book.numberOfCopies - 1);
+    });
+  };
+
+  const handleReturnBook = () => {
+    setBooks((prev) => {
+      return findBookAndUpdateCopiesNum(prev, +book.numberOfCopies + 1);
+    });
+  };
+
   return (
     <div className="bookCard">
       <div className="bookImg flexContainerCenter">
         <img src={bookImg} />
       </div>
       <div className="bookContent">
-        <div className={`flexContainerCenter`}>
+        <div className="flexContainerCenter">
           <h4 className="app__bold-text">{book.title}</h4>
           <p>- {book.author}</p>
         </div>
         <p>
           Publisher: {book.publisher} - {yearOfPublishing}
         </p>
-        <p>Number of copies: {book.numberOfCopies}</p>
+        <div>
+          <p>Number of copies: {book.numberOfCopies}</p>
+          <button onClick={handleBorrowBook}>- Borrow</button>
+          <button onClick={handleReturnBook}>+ Return</button>
+        </div>
+
         <div className="flexContainerCenter bookTag">
           <p>{book.category}</p>
         </div>

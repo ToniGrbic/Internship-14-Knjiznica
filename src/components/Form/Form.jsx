@@ -37,7 +37,7 @@ const Form = ({ book, setBook }) => {
           setFormData={setFormData}
         />
         <div>
-          <p>Number of copies:</p>
+          <p>copies:</p>
           <input
             type="number"
             onChange={(e) => setFormData({ numberOfCopies: e.target.value })}

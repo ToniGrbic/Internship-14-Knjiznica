@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./components/Form/Form";
-import "./App.css";
+import BookList from "./components/BookList";
+import "./styles/App.css";
 
 const initialBookState = {
   uuid: "",
@@ -20,8 +21,10 @@ function App() {
   return (
     <div className="container">
       <h1>Library</h1>
-      <Form />
-      <div className="listDiv"></div>
+      <Form book={book} setBook={setBook} />
+      <div className="booksContainer">
+        <BookList />
+      </div>
     </div>
   );
 }

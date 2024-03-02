@@ -1,5 +1,5 @@
 import React from "react";
-
+import SelectOptions from "../SelectOptions";
 const FormSelect = ({ name, options, field, setFormData }) => {
   return (
     <div>
@@ -14,15 +14,7 @@ const FormSelect = ({ name, options, field, setFormData }) => {
           })
         }
       >
-        {options?.map((option) => {
-          return (
-            <>
-              <option key={option} value={option}>
-                {option}
-              </option>
-            </>
-          );
-        })}
+        <SelectOptions options={options} />
       </select>
     </div>
   );

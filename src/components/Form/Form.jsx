@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import FormSelect from "./FormSelect";
 import TextInput from "./TextInput";
 import DateInput from "./DateInput";
+import toast from "react-hot-toast";
+import uuid from "react-uuid";
 
 const categories = [
   "novel",
@@ -12,13 +14,30 @@ const categories = [
   "biography",
 ];
 
-const Form = ({ book, setBook }) => {
-  const { title, author, imageUrl, publisher, publishedDate, numberOfCopies } =
-    book;
+const Form = ({ book, setBook, setBooks }) => {
+  const {
+    title,
+    author,
+    imageUrl,
+    publisher,
+    publishedDate,
+    category,
+    numberOfCopies,
+  } = book;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (title === "" || author === "" || publisher === "") {
+      toast.error("some required text inputs are empty, can't submit");
+      return;
+    } else if (publishedDate === "") {
+      toast.error("please select a date, can't submit");
+      return;
+    }
+    book.uuid = uuid();
     console.log(book);
+    toast.success("New book added");
+    setBooks((prev) => [...prev, book]);
   };
 
   const setFormData = (fields) => {
@@ -32,15 +51,20 @@ const Form = ({ book, setBook }) => {
       <div className="selectInputsContainer">
         <DateInput date={publishedDate} setFormData={setFormData} />
         <FormSelect
+          name="category"
           options={categories}
-          type="Category"
+          field={category}
           setFormData={setFormData}
         />
         <div>
           <p>copies:</p>
           <input
             type="number"
-            onChange={(e) => setFormData({ numberOfCopies: e.target.value })}
+            value={numberOfCopies}
+            onChange={(e) => {
+              if (e.target.value >= 0)
+                setFormData({ numberOfCopies: e.target.value });
+            }}
           />
         </div>
       </div>

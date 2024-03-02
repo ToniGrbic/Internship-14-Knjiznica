@@ -1,12 +1,13 @@
 import React from "react";
 
-const FormSelect = ({ options, type, setFormData }) => {
+const FormSelect = ({ name, options, field, setFormData }) => {
   return (
     <div>
-      <p>{type}: </p>
+      <p>{name}: </p>
       <select
-        id={type}
-        name={type}
+        id={name}
+        name={name}
+        value={field}
         onChange={(e) =>
           setFormData({
             category: e.target.value,

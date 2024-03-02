@@ -39,7 +39,7 @@ body {
 
 .container {
   padding-bottom: 20px;
-  width: 70%;
+  width: 90%;
   margin: 0% auto;
   min-width: 500px;
   display: flex;
@@ -55,28 +55,6 @@ h1 {
 h4 {
   margin: 2px;
   padding: 5px;
-}
-
-.alertDiv {
-  width: 100%;
-  margin-bottom: 1rem;
-  height: auto;
-  display: grid;
-  align-items: center;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  letter-spacing: 0.25rem;
-  text-transform: capitalize;
-}
-
-.alert-danger {
-  color: var(--danger-bg-color);
-  background: var(--danger-color);
-}
-.alert-success {
-  color: var(--success-color);
-  background: var(--success-bg-color);
 }
 
 #form {
@@ -142,18 +120,11 @@ button {
   color: white;
   border-radius: 5px;
   margin-top: 1rem;
+  transition: 250ms ease-in-out;
 }
 
-#submit:hover {
+#addBookBtn:hover {
   background-color: var(--orange-btn-hover);
-}
-
-#submit h3 {
-  transition: 500ms;
-}
-
-#submit:hover h3 {
-  transform: translate(0px, -5px);
 }
 
 .dateTime {

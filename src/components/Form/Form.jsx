@@ -2,12 +2,13 @@ import React from "react";
 import FormSelect from "./FormSelect";
 import TextInput from "./TextInput";
 import DateInput from "./DateInput";
+import Button from "../Button";
 import toast from "react-hot-toast";
 import uuid from "react-uuid";
 import { defaultBookState } from "../../App";
 import { sortBooks } from "../../utils/utils";
 
-const categories = [
+export const categories = [
   "novel",
   "poetry",
   "drama",
@@ -99,9 +100,7 @@ const Form = ({ book, setBook, setBooks }) => {
         setFormData={setFormData}
       />
 
-      <button type="submit" id="addBookBtn">
-        Add Book
-      </button>
+      <Button name="Add Book" />
     </form>
   );
 };

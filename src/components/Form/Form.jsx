@@ -7,9 +7,8 @@ import TextInput from "./TextInput";
 import DateInput from "./DateInput";
 import ButtonSubmit from "../ButtonSubmit";
 
-import { defaultBookState } from "../../App";
+import { defaultBookState, categories } from "../../utils/constants";
 import { sortBooks } from "../../utils/utils";
-import { categories } from "../../utils/constants";
 
 const Form = ({ book, setBook, setBooks }) => {
   const {

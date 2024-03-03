@@ -4,18 +4,9 @@ import { Toaster } from "react-hot-toast";
 import Form from "./components/Form/Form";
 import BookList from "./components/BookList";
 import Filter from "./components/Filter";
-import "./styles/App.css";
 
-export const defaultBookState = {
-  uuid: "",
-  title: "",
-  author: "",
-  imageUrl: "",
-  publisher: "",
-  publishedDate: "",
-  category: "novel",
-  numberOfCopies: 0,
-};
+import { defaultBookState } from "./utils/constants";
+import "./styles/App.css";
 
 const getBooks = () => {
   const books = JSON.parse(localStorage.getItem("books"));

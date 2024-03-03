@@ -6,3 +6,14 @@ export const categories = [
   "science fiction",
   "biography",
 ];
+
+export const defaultBookState = {
+  uuid: "",
+  title: "",
+  author: "",
+  imageUrl: "",
+  publisher: "",
+  publishedDate: "",
+  category: "novel",
+  numberOfCopies: 0,
+};

@@ -28,6 +28,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("books", JSON.stringify(books));
+    setFilteredBooks(books);
   }, [books]);
 
   return (

@@ -16,7 +16,7 @@ const Book = ({ book, setBooks }) => {
 
   const handleBorrowBook = () => {
     if (book.numberOfCopies === 0) {
-      toast.error("No more copies available");
+      toast.error("No more copies available!");
       return;
     }
     setBooks((prev) => {
@@ -31,9 +31,11 @@ const Book = ({ book, setBooks }) => {
   };
 
   return (
-    <div className="bookCard">
+    <div
+      className={`bookCard ${book.numberOfCopies === 0 ? "lowerOpacity" : ""}`}
+    >
       <div className="bookImg flexContainerCenter">
-        <img src={bookImg} />
+        <img src={book.imageUrl || bookImg} />
       </div>
       <div className="bookContent">
         <div className="flexContainerCenter">
@@ -45,8 +47,12 @@ const Book = ({ book, setBooks }) => {
         </p>
         <div>
           <p>Number of copies: {book.numberOfCopies}</p>
-          <button onClick={handleBorrowBook}>- Borrow</button>
-          <button onClick={handleReturnBook}>+ Return</button>
+          <button className="bookBtn borrowBtn" onClick={handleBorrowBook}>
+            - Borrow
+          </button>
+          <button className="bookBtn returnBtn" onClick={handleReturnBook}>
+            + Return
+          </button>
         </div>
 
         <div className="flexContainerCenter bookTag">

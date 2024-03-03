@@ -16,14 +16,18 @@ export const defaultBookState = {
   numberOfCopies: 0,
 };
 
+const getBooks = () => {
+  const books = JSON.parse(localStorage.getItem("books"));
+  return books ? books : [];
+};
+
 function App() {
   const [book, setBook] = useState(defaultBookState);
-  const [books, setBooks] = useState(JSON.parse(localStorage.getItem("books")));
+  const [books, setBooks] = useState(getBooks());
   const [filteredBooks, setFilteredBooks] = useState(books);
 
   useEffect(() => {
     localStorage.setItem("books", JSON.stringify(books));
-    console.log(filteredBooks);
   }, [books]);
 
   return (

@@ -12,7 +12,7 @@ const Filter = ({ books, setFilteredBooks }) => {
     return books.filter((book) => {
       const category =
         searchCategory === "All" ? true : book.category === searchCategory;
-      if (searchTerm === "") return category;
+      if (!searchTerm) return category;
 
       const title = book.title.toLowerCase().includes(searchTerm.toLowerCase());
       const author = book.author

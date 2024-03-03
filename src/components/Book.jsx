@@ -38,21 +38,23 @@ const Book = ({ book, setBooks }) => {
         <img src={book.imageUrl || bookImg} />
       </div>
       <div className="bookContent">
-        <div className="flexContainerCenter">
+        <div className="">
           <h4 className="app__bold-text">{book.title}</h4>
-          <p>- {book.author}</p>
+          <p>Author: {book.author}</p>
         </div>
         <p>
           Publisher: {book.publisher} - {yearOfPublishing}
         </p>
         <div>
           <p>Number of copies: {book.numberOfCopies}</p>
-          <button className="bookBtn borrowBtn" onClick={handleBorrowBook}>
-            - Borrow
-          </button>
-          <button className="bookBtn returnBtn" onClick={handleReturnBook}>
-            + Return
-          </button>
+          <div>
+            <button className="bookBtn borrowBtn" onClick={handleBorrowBook}>
+              - Borrow
+            </button>
+            <button className="bookBtn returnBtn" onClick={handleReturnBook}>
+              + Return
+            </button>
+          </div>
         </div>
 
         <div className="flexContainerCenter bookTag">

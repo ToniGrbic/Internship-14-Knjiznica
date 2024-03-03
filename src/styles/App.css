@@ -6,30 +6,21 @@
 :root {
   --orange-btn: rgb(243, 162, 11);
   --orange-btn-hover: rgb(255, 117, 4);
-  --success-bg-color: #d4edda;
-  --success-color: #155724;
-  --danger-bg-color: #721c24;
-  --danger-color: #f8d7da;
   --grey-color: #e1e1e1;
-  --light-grey-color: #eeeeee;
-  --blue-color: rgba(93, 128, 187, 1);
+  --linear-gradient-background: linear-gradient(
+    0deg,
+    rgba(93, 128, 187, 1) 0%,
+    rgba(25, 42, 123, 1) 88%,
+    rgba(11, 25, 102, 1) 100%
+  );
 }
 
 * {
   font-family: "Poppins";
 }
 
-/* div {
-  outline: 1px red solid;
-} */
-
 body {
-  background: linear-gradient(
-    0deg,
-    rgba(93, 128, 187, 1) 0%,
-    rgba(25, 42, 123, 1) 88%,
-    rgba(11, 25, 102, 1) 100%
-  );
+  background: var(--linear-gradient-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;

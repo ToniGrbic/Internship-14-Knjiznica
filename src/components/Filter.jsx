@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+
 import SelectOptions from "./SelectOptions";
 import ButtonSubmit from "./ButtonSubmit";
-import { categories } from "./Form/Form";
+import { categories } from "../utils/constants";
 
 const Filter = ({ books, setFilteredBooks }) => {
   const [searchTerm, setSearchTerm] = useState("");

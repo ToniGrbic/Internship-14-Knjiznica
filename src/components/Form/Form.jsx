@@ -1,21 +1,15 @@
 import React from "react";
+import toast from "react-hot-toast";
+import uuid from "react-uuid";
+
 import FormSelect from "./FormSelect";
 import TextInput from "./TextInput";
 import DateInput from "./DateInput";
 import ButtonSubmit from "../ButtonSubmit";
-import toast from "react-hot-toast";
-import uuid from "react-uuid";
+
 import { defaultBookState } from "../../App";
 import { sortBooks } from "../../utils/utils";
-
-export const categories = [
-  "novel",
-  "poetry",
-  "drama",
-  "fantasy",
-  "science fiction",
-  "biography",
-];
+import { categories } from "../../utils/constants";
 
 const Form = ({ book, setBook, setBooks }) => {
   const {

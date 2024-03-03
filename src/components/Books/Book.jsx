@@ -1,5 +1,5 @@
 import React from "react";
-import bookImg from "../assets/book_image.jpg";
+import bookImg from "../../assets/book_image.jpg";
 import toast from "react-hot-toast";
 
 const Book = ({ book, setBooks }) => {

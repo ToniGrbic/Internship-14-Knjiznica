@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 
 import Form from "./components/Form/Form";
-import BookList from "./components/BookList";
-import Filter from "./components/Filter";
+import BookList from "./components/Books/BookList";
+import Filter from "./components/Books/Filter";
 
 import { defaultBookState } from "./utils/constants";
 import "./styles/App.css";

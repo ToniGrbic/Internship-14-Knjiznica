@@ -99,6 +99,11 @@ select {
 
 input {
   min-width: 0;
+  border: none;
+}
+
+.inputEmpty {
+  outline: 1.5px solid red;
 }
 
 input[type="number"] {

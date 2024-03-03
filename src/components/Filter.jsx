@@ -14,10 +14,9 @@ const Filter = ({ books, setFilteredBooks }) => {
         searchCategory === "All" ? true : book.category === searchCategory;
       if (!searchTerm) return category;
 
-      const title = book.title.toLowerCase().includes(searchTerm.toLowerCase());
-      const author = book.author
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+      const searchTermToLower = searchTerm.toLowerCase();
+      const title = book.title.toLowerCase().includes(searchTermToLower);
+      const author = book.author.toLowerCase().includes(searchTermToLower);
 
       return (title || author) && category;
     });

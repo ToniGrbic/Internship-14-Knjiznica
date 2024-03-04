@@ -2,7 +2,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import uuid from "react-uuid";
 
-import FormSelect from "./FormSelect";
+import SelectCategory from "./SelectCategory";
 import TextInput from "./TextInput";
 import DateInput from "./DateInput";
 import ButtonSubmit from "../ButtonSubmit";
@@ -49,7 +49,7 @@ const Form = ({ book, setBook, setBooks }) => {
     <form id="form" onSubmit={handleSubmit}>
       <div className="selectInputsContainer">
         <DateInput date={publishedDate} setFormData={setFormData} />
-        <FormSelect
+        <SelectCategory
           name="category"
           options={categories}
           field={category}

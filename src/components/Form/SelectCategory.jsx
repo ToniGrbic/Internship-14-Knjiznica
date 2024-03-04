@@ -1,7 +1,7 @@
 import React from "react";
 import SelectOptions from "../SelectOptions";
 
-const FormSelect = ({ name, options, field, setFormData }) => {
+const SelectCategory = ({ name, options, field, setFormData }) => {
   return (
     <div>
       <p>{name}: </p>
@@ -20,4 +20,4 @@ const FormSelect = ({ name, options, field, setFormData }) => {
     </div>
   );
 };
-export default FormSelect;
+export default SelectCategory;

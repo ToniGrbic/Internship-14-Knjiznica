@@ -9,7 +9,6 @@ const Filter = ({ books, setFilteredBooks }) => {
   const [searchCategory, setSearchCategory] = useState("All");
 
   const filterBooks = (books, searchTerm) => {
-    console.log(books);
     return books?.filter((book) => {
       const category =
         searchCategory === "All" ? true : book.category === searchCategory;
@@ -24,7 +23,6 @@ const Filter = ({ books, setFilteredBooks }) => {
   };
 
   const handleSearchSubmit = (e) => {
-    console.log(e.target.value, searchTerm);
     e.preventDefault();
     const filtered = filterBooks(books, searchTerm);
     setFilteredBooks(filtered);

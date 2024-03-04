@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import SelectOptions from "../SelectOptions";
-import ButtonSubmit from "../ButtonSubmit";
+import SelectOptions from "../Shared/SelectOptions";
+import ButtonSubmit from "../Shared/ButtonSubmit";
 import { categories } from "../../utils/constants";
 
 const Filter = ({ books, setFilteredBooks }) => {

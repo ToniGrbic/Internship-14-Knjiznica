@@ -1,5 +1,5 @@
 import React from "react";
-import SelectOptions from "../SelectOptions";
+import SelectOptions from "../Shared/SelectOptions";
 
 const SelectCategory = ({ name, options, field, setFormData }) => {
   return (
